@@ -1,2 +1,9 @@
 ---
 ansible_ssh_private_key_file: "{{ inventory_dir }}/../.vagrant/machines/default/virtualbox/private_key"
+
+# VyOS router configuration
+vyos_wan_interface: eth1
+vyos_wan_ip: 192.168.178.250/24
+vyos_default_gateway: 192.168.178.1
+vyos_lan_interface: eth2
+vyos_lan_ip: 192.168.50.1/24

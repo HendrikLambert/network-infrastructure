@@ -16,7 +16,7 @@ vagrant box add vyos/current
 
 ## Setup
 
-1. Modify the IP addresses in `Vagrantfile` to match your network
+1. Modify the IP addresses in `Vagrantfile` and `ansible/group_vars/vyos.yml` to match your network
 2. Start the VyOS router:
    ```bash
    vagrant up

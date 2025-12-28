@@ -2,13 +2,6 @@
 - name: Configure VyOS Router
   hosts: all
   gather_facts: no
-  
-  vars:
-    vyos_wan_interface: eth1
-    vyos_wan_ip: 192.168.178.250/24
-    vyos_lan_interface: eth2
-    vyos_lan_ip: 192.168.50.1/24
-    vyos_default_gateway: 192.168.178.1
 
   tasks:
     - name: Configure WAN interface
