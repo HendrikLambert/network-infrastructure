@@ -4,6 +4,9 @@ This project demonstrates a setup with a VyOS router that peers using BGP with t
 
 This setup aims to provide a PoC to eliminate the extra hop, often used in Kubernetes and allows for terminating SSL traffic for services outside of the Kubernetes cluster.
 
+> [!WARNING]
+> This router configuration is NOT hardened and currently routes all traffic without firewall rules.
+
 ## Prerequisites
 
 ```bash
