@@ -1,0 +1,41 @@
+---
+- name: Configure VyOS Router
+  hosts: all
+  gather_facts: no
+  
+  vars:
+    vyos_wan_interface: eth1
+    vyos_wan_ip: 192.168.178.250/24
+    vyos_lan_interface: eth2
+    vyos_lan_ip: 192.168.50.1/24
+    vyos_default_gateway: 192.168.178.1
+
+  tasks:
+    - name: Configure WAN interface
+      vyos.vyos.vyos_config:
+        lines:
+          - set interfaces ethernet {{ vyos_wan_interface }} description 'WAN'
+        save: yes
+
+    - name: Configure LAN interface
+      vyos.vyos.vyos_config:
+        lines:
+          - set interfaces ethernet {{ vyos_lan_interface }} description 'LAN'
+        save: yes
+
+    - name: Configure default route
+      vyos.vyos.vyos_config:
+        lines:
+          - set protocols static route 0.0.0.0/0 next-hop {{ vyos_default_gateway }}
+        save: yes
+
+    - name: Show configuration
+      vyos.vyos.vyos_command:
+        commands:
+          - show interfaces
+          - show ip route
+      register: vyos_output
+
+    - name: Display configuration
+      debug:
+        msg: "{{ vyos_output.stdout_lines }}"
