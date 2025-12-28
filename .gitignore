@@ -1,0 +1,21 @@
+# Vagrant files
+.vagrant/
+*.log
+
+# SSH Keys (sensitive - do not commit)
+ssh-keys/
+*.pem
+*.key
+*_key
+*_key.pub
+
+# VirtualBox files
+*.vdi
+*.vbox
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+vagrant-vyos/
